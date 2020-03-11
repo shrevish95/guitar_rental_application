@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_11_101803) do
+ActiveRecord::Schema.define(version: 2020_03_11_111042) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,23 @@ ActiveRecord::Schema.define(version: 2020_03_11_101803) do
     t.string "cover_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "image"
+    t.string "imageable_type"
+    t.integer "imageable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instruments", force: :cascade do |t|
+    t.string "name"
+    t.string "availability_type"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_instruments_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
