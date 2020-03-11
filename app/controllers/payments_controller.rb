@@ -10,9 +10,6 @@ class PaymentsController < ApplicationController
       @customer = @stripe.create_customer(@user.email, card_token)
       @user.update(stripe_customer_token: @customer.id)
     end
-    puts @customer
-    @charge = @stripe.create_charge(3000, 'usd', 'Test', @customer.id)
-    puts @charge
     @user.update(is_verified: true)
     redirect_to root_path,  notice: "You are sucessfully verified your account.now you can create listings and purchase instruments"
   end
