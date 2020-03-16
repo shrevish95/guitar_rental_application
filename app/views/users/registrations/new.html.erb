@@ -1,7 +1,7 @@
 <div class="container mt-5 mb-5">
   <div class="row">
     <div class="col-md-6 mx-md-auto">
-      <div class="card shadow p-3 rounded">
+      <div class="card shadow p-3 rounded border-0">
         <h2 class="text-center font-weight-bolder">Sign up</h2>
         <div class="card-body">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -10,6 +10,16 @@
             <div class="form-group">
               <%= f.label :email %>
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name, class: 'form-control' %>
             </div>
 
             <div class="form-group">
@@ -27,11 +37,11 @@
             </div>
           <% end %>
           <div class="links text-center">
-            <small>Already have an account? 
+            <small>Already have an account?
               <%= link_to "Log in", new_session_path(resource_name) %>
             </small>
           </div>
-        </div>  
+        </div>
       </div>
     </div>
   </div>

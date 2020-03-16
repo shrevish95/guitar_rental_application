@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-md-auto">
+      <div class="card">
+        <%= image_tag @category.cover_image.url, class: "card-img-top" %>
+        <div class="card-body">
+          <h5>
+            <%= @category.name %>
+          </h5>
+          <p>
+            <%= @category.description %>
+          </p>
+          <div class="">
+            <%= link_to "Back", categories_path, class: "btn btn-secondary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

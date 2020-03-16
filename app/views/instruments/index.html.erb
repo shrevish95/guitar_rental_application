@@ -1,0 +1,42 @@
+<div class="container mt-5 mb-5">
+  <div class="row sorting">
+    <div class="dropdown">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+        All Listing Type
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Ranting Out</a>
+        <a class="dropdown-item" href="#">Selling</a>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-4">
+      <ul class="list-group">
+        <% @categories.each do |category| %>
+          <li class="list-group-item border-0 p-0 mt-1">
+            <%= category.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-8 pl-0">
+      <div class="row">
+        <% @instruments.each do |instrument| %>
+          <div class="col-md-4 mt-3">
+            <div class="card">
+              <div class="card-body">
+                <%= truncate(instrument.name, length: 20) %>
+                <br>
+                <span class="badge badge-primary">
+                  <%= instrument.availability_type %>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
