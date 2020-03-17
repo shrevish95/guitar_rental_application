@@ -6,4 +6,8 @@ module ApplicationHelper
   def month_names
     Date::MONTHNAMES.compact.each_with_index.map { |name,i| ["#{name}", i+1] }
   end
+
+  def active_class(link_path)
+    current_page?(link_path) ? "active" : ""
+  end
 end

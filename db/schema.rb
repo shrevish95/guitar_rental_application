@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_15_043728) do
+ActiveRecord::Schema.define(version: 2020_03_17_092350) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2020_03_15_043728) do
     t.string "cover_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
   create_table "images", force: :cascade do |t|
@@ -34,7 +36,9 @@ ActiveRecord::Schema.define(version: 2020_03_15_043728) do
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["category_id"], name: "index_instruments_on_category_id"
+    t.index ["slug"], name: "index_instruments_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-md-6 mx-md-auto">
       <div class="card">
-        <%= image_tag @category.cover_image.url, class: "card-img-top" %>
+        <% if @category.cover_image.present? %>
+          <%= image_tag @category.cover_image.url, class: "card-img-top" %>
+        <% end %>  
         <div class="card-body">
           <h5>
             <%= @category.name %>

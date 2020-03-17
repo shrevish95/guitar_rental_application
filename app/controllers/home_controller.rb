@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @q = Instrument.ransack(params[:q])
-    @instruments = @q.result(distinct: true)
+    @instruments = @q.result.includes(:category)
   end
 
   def verify_user;end

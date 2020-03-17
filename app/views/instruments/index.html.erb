@@ -15,27 +15,34 @@
     <div class="col-md-4">
       <ul class="list-group">
         <% @categories.each do |category| %>
-          <li class="list-group-item border-0 p-0 mt-1">
-            <%= link_to category.name, instruments_path(category: category.id), class: "list-group-item" %>
+          <li class="list-group-item p-0">
+            <%= link_to category.name, instruments_path(category: category.slug), class: "list-group-item border-0 #{active_class(instruments_path(category: category.slug))}" %>
           </li>
         <% end %>
       </ul>
     </div>
     <div class="col-md-8 pl-0">
       <div class="row">
-        <% @instruments.each do |instrument| %>
-          <div class="col-md-4 mt-3">
-            <div class="card">
-              <div class="card-body">
-                <%= truncate(instrument.name, length: 20) %>
-                <br>
-                <span class="badge badge-primary">
-                  <%= instrument.availability_type %>
-                </span>
-              </div>
-            </div>
-          </div>
-        <% end %>
+        <% if @instruments.present? %>
+          <% @instruments.each do |instrument| %>
+            <div class="col-md-4 mt-3">
+              <div class="card">
+                <div class="card-body">
+                  <%= truncate(instrument.name, length: 20) %>
+                  <br>
+                  <span class="badge badge-primary">
+                    <%= instrument.availability_type %>
+                  </span>
+                </div>
+              </div>  
+            </div>  
+          <% end %>
+        <% else %>
+          <div class="card">
+            <div class="card-body">
+            </div>        
+1`1          </div>
+        <% end %>  
       </div>
     </div>
   </div>
